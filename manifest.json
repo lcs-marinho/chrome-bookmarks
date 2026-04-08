@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark BAR",
+  "description": "A little bookmark bar for your browser.",
+  "version": "1.0",
+  "icons": {
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["bookmarks"]
+}
