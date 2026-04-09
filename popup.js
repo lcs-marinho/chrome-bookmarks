@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const listContainer = document.getElementById('bookmark-list');
 
-  chrome.bookmarks.getRecent(300, function (bookmarks) {
+  chrome.bookmarks.getChildren('1', function (bookmarks) {
     bookmarks.forEach(function (bookmark) {
 
       if (!bookmark.url) return;
