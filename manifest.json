@@ -9,5 +9,5 @@
   "action": {
     "default_popup": "popup.html"
   },
-  "permissions": ["bookmarks", "favicon", "theme"]
+  "permissions": ["bookmarks", "favicon"]
 }
