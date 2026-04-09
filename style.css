@@ -1,20 +1,29 @@
-body {
-	margin: 0;
+html, body {
+    margin: 0;
+    padding: 0;
 
-    main {
-        overflow: hidden;
-    }
+    border: none !important;
+    border-radius: 1rem !important;
+}
 
-	#bookmark-list {
-		display: flex;
-		flex-direction: row wrap;
-		gap: 16px;
+main {
+    background-color: #1e1e2d;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    width: 800px;
+}
 
-        padding: 8px;
-        width: fit-content;
+#bookmark-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 8px;
+    max-width: 100%; 
+    overflow-y: auto;
+}
 
-		.bookmark-btn {
-			padding: 0;
-		}
-	}
+.bookmark-btn {
+    padding: 0;
 }
