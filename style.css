@@ -1,29 +1,129 @@
 html, body {
     margin: 0;
     padding: 0;
-
     border: none !important;
-    border-radius: 1rem !important;
 }
 
 main {
-    background-color: #1e1e2d;
+    background-color: rgba(30,30,45,0.98);
     overflow: hidden;
-    display: flex;
-    justify-content: flex-start;
-    width: 800px;
+    display: block;
+    width: 320px;
+    max-height: 480px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 
 #bookmark-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
     padding: 8px;
-    max-width: 100%; 
+    max-width: 100%;
+    max-height: 440px;
     overflow-y: auto;
 }
 
-.bookmark-btn {
-    padding: 0;
+/* Minimal dark scrollbar: hidden by default, visible on hover */
+#bookmark-list {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* start hidden */
+}
+
+/* WebKit browsers */
+#bookmark-list::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+#bookmark-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#bookmark-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    transition: background 0.18s ease, opacity 0.18s ease;
+    opacity: 0; /* hidden by default */
+}
+
+#bookmark-list:hover::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.06);
+    opacity: 1;
+}
+
+/* Firefox: reveal a thin subtle thumb on hover */
+#bookmark-list:hover {
+    scrollbar-color: rgba(255,255,255,0.06) transparent;
+}
+
+.bookmark-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    color: #e6e6e6;
+}
+
+.bookmark-item:hover {
+    background-color: rgba(255,255,255,0.03);
+}
+
+.favicon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.bookmark-title {
+    font-size: 13px;
+    color: #d7d7e0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bookmark-btn { padding: 0; }
+
+.folder {
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #e6e6e6;
+}
+
+.folder-header:focus {
+    outline: 2px solid rgba(255,255,255,0.06);
+}
+
+.chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: #bfbfd3;
+}
+.chevron svg { display: block; }
+
+.folder-children {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 12px;
+    margin-top: 4px;
+}
+
+.folder.expanded > .folder-children {
+    display: flex;
 }
